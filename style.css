@@ -1,0 +1,104 @@
+/*comments*/
+
+*, *:before, *:after {
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+            box-sizing:border-box;
+}
+
+body { 
+    background-color: rgba(255,255,255);
+    margin:0;
+}
+
+header {
+    background-color: #373737;
+    color: white;
+    height: 70px;
+	width: 100%;
+}
+
+header table {
+    border-color: transparent;
+	height: 60px;
+}
+
+nav {
+    background-color: #eee;
+    border: 1px solid #ddd;
+	margin: 50px 0px 20px 0px;
+    height: 56px;
+}
+
+nav ul li {
+    float:left;
+    margin-right:22px
+}
+
+main {
+    margin: 0 auto;
+    width: 1170px;
+    display: block;
+}
+
+article {
+    float: left;
+    margin-bottom: 30px;
+    padding: 0 15px;
+    width: 74%;
+    overflow: hidden;
+}
+
+section {
+    background-color:#eee;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+aside {
+    float: right;
+    padding-left: 15px;
+    width: 25%;
+    display: block;
+    overflow: hidden;
+    position:relative;
+}
+
+menu {
+    padding: 0;
+}
+
+footer {
+    background-color: #373737;
+    clear: both;
+    color: #fff;
+    padding: 50px 20px;
+	position: relative ;
+	height: 30px;
+}
+
+footer small a {
+    color: #eff;
+}
+
+a.knopka {
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: rgb(212,75,56); /* фон кнопки */
+  padding: .7em 1.5em; /* отступ от текста */
+  outline: none; /* убирать контур в Mozilla */
+} 
+a.knopka:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
+a.knopka:active { background: rgb(152,15,0); } /* при нажатии */
+
+a.knopka2 {
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: rgb(96,75,56); /* фон кнопки */
+  padding: .7em 1.5em; /* отступ от текста */
+  outline: none; /* убирать контур в Mozilla */
+} 
+a.knopka2:hover { background: rgb(76,75,56); } /* при наведении курсора мышки */
+a.knopka2:active { background: rgb(59,75,56); } /* при нажатии */
