@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <head>
     <meta charset="utf-8">
-	<link href="reg_style.css" rel="stylesheet">
+	<link href="edit_info_style.css" rel="stylesheet">
 	<title>Сообщество компьютеров и людей</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
 <main>
   <article>
     <section>
-      <h3>Регистрация</h3>
+      <h3>Редактирование дополнительной информации</h3>
       <form action="save_user.php" method='post' class='reg-form'>
 		<div class='form-row'>
 			<label for='form_email'>Почта: </label>

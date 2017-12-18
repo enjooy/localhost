@@ -11,6 +11,24 @@ body {
     margin:0;
 }
 
+.form-profile {
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 200px;
+    background-color: #373737;
+}
+
+.form-profile img {
+    float: left;
+    margin: 10px;
+}
+
+.form-profile a {
+    float: left;
+    font: 36pt sans-serif;
+    color: white;
+}
+
 nav {
     background-color: #eee;
     border: 1px solid #ddd;

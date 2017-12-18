@@ -6,21 +6,9 @@
             box-sizing:border-box;
 }
 
-body { 
+body {
     background-color: rgba(255,255,255);
     margin:0;
-}
-
-header {
-    background-color: #373737;
-    color: white;
-    height: 70px;
-	width: 100%;
-}
-
-header table {
-    border-color: transparent;
-	height: 60px;
 }
 
 nav {
@@ -88,7 +76,7 @@ a.knopka {
   background: rgb(212,75,56); /* фон кнопки */
   padding: .7em 1.5em; /* отступ от текста */
   outline: none; /* убирать контур в Mozilla */
-} 
+}
 a.knopka:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
 a.knopka:active { background: rgb(152,15,0); } /* при нажатии */
 
@@ -99,6 +87,6 @@ a.knopka2 {
   background: rgb(96,75,56); /* фон кнопки */
   padding: .7em 1.5em; /* отступ от текста */
   outline: none; /* убирать контур в Mozilla */
-} 
+}
 a.knopka2:hover { background: rgb(76,75,56); } /* при наведении курсора мышки */
 a.knopka2:active { background: rgb(59,75,56); } /* при нажатии */
