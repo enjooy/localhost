@@ -7,6 +7,7 @@
   }
   else {
     $auth_usr = true;
-    $login = $_SESSION['login'];
+    $s_id = $_SESSION['id'];
+    $s_login = $_SESSION['login'];
   }
 ?>

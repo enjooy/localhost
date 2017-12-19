@@ -53,6 +53,10 @@
   // Проверяем, есть ли ошибки
   if ($result2=='TRUE')
   {
+    $result3 = mysql_query ("SELECT * FROM users WHERE login='$login'");
+    $myrow = mysql_fetch_array($result3);
+    $_id = $myrow['id'];
+    $result3 = mysql_query ("INSERT INTO info_users (id) VALUES('$_id')");
     echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='localhost'>Главная страница</a>";
   }
   else {

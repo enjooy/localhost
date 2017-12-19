@@ -18,12 +18,12 @@
   <article>
     <section>
       <h3>Профиль пользователя</h3>
-      <a href=""><h4>Редактировать профиль</h4></a>
+      <a href="../edit_info/edit_info.php"><h4>Редактировать профиль</h4></a>
       <div class="form-profile">
           <img src="../img/profile.png" height="180" width="180">
           <a>
               <?php
-                echo $login;
+                echo $_SESSION['login'];
               ?>
           </a>
       </div>
@@ -35,8 +35,8 @@
         <h4>Моё</h4>
         <menu>
           <li><a href="#">Мой компьютер</a></li>
-          <li><a href="#">Смотреть видео</a></li>
-          <li><a href="#">Слушать музыку</a></li>
+          <li><a href="#">Альбом</a></li>
+          <li><a href="#">Обмен</a></li>
 		</menu>
   </aside>
 </main>

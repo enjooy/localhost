@@ -1,5 +1,5 @@
 <?
-  include("chck_sssn.php");
+  include_once('chck_sssn.php');
 ?>
 <!DOCTYPE HTML>
 <head>
@@ -8,11 +8,11 @@
 	<title>Сообщество компьютеров и людей</title>
 </head>
 <body>
-<?php
-  include_once('header.php');
-?>
-<header>
-</header>
+  <?php
+    include_once('header.php');
+  ?>
+  <header>
+  </header>
   <main>
     <article>
       <h2>Заголовок статьи</h2>

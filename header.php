@@ -1,21 +1,21 @@
 <div class="headerstat">
-    <a href="../index.php"><img src="../st.png" height="50" width="50"></a>
+    <a href="../index.php"><img src="../img/st.png" height="50" width="50"></a>
     <h1> Сообщество компьютеров и людей </h1>
     <?php
-      // Проверяем, пусты ли переменные логина и id пользователя
+      // Проверяем, авторизован ли пользователь
       if (!$auth_usr)
       {
         ?>
-        <a href="\registration\reg.php" class="knopka">Зарегистрироваться</a>
+        <a href="..\registration\reg.php" class="knopka">Зарегистрироваться</a>
         <a> или войти:</a>
-        <a href="\authorization\auth.php" class="knopka2">Почта</a>
+        <a href="..\authorization\auth.php" class="knopka2">Почта</a>
         <?php
       }
       else
       {
         ?>
-        <a href="../ext_usr.php" class="knopka">выход</a>
-        <a href="profile/profile.php"><img src="img/profile.png" class="profile" height="50" width="50"></a>
+        <a href="../ext_usr.php" class="knopka">Выход</a>
+        <a href="../profile/profile.php"><img src="../img/profile.png" class="profile" height="50" width="50"></a>
         <?php
       }
     ?>
@@ -40,6 +40,10 @@
         .headerstat h1{
             display: inline;
             vertical-align:middle;
+        }
+
+        .headerstat img {
+            margin: 5px;
         }
 
         .headerstat .profile {

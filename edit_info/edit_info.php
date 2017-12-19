@@ -1,4 +1,7 @@
-<!DOCTYPE HTML>
+<?php
+  include("../chck_sssn.php");
+?>
+    <!DOCTYPE HTML>
 <head>
     <meta charset="utf-8">
 	<link href="edit_info_style.css" rel="stylesheet">
@@ -15,26 +18,19 @@
   <article>
     <section>
       <h3>Редактирование дополнительной информации</h3>
-      <form action="save_user.php" method='post' class='reg-form'>
-		<div class='form-row'>
-			<label for='form_email'>Почта: </label>
-    		<input type='email' id='form_email' name='email'>
-  		</div>
-
-  		<div class='form-row'>
-    		<label for='form_login'>Логин: </label>
-    		<input type='text' id='form_login' name='login'>
-		</div>
-
-		<div class='form-row'>
-			<label for='form_pass'>Пароль: </label>
-			<input type='password' id='form_pass' name='pass'>
-		</div>
-
-        <div class='form-row'>
-          <label for='form_ava'>Аватарка: </label>
-          <input type="file" name="ava">
-        </div>
+      <form action="edit_user.php" method='post' class='edit-form'>
+		  <div class='form-row'>
+              <label for='form_login'>Имя: </label>
+              <input type='text' id='form_name' name='name'>
+          </div>
+          <div class='form-row'>
+              <label for='form_login'>Фамилия: </label>
+              <input type='text' id='form_surn' name='surn'>
+          </div>
+          <div class='form-row'>
+              <label for='form_login'>Дата рождения:</label>
+              <input type='date' id='form_date' name='date'>
+          </div>
 
         <div class="form-row">
 			<input type="submit" value='Go'>
