@@ -2,18 +2,18 @@
   include("../chck_sssn.php");
 ?>
 
-    <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <head>
     <meta charset="utf-8">
 </head>
 </html>
 <?php
-  include ("../db.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь
+  include ("../db_pdo.php");
   // проверка на существование пользователя с таким же логином
 
-  $_zapros = mysql_query("SELECT * FROM info_users WHERE id='$s_id'",$db);
-  $myrow = mysql_fetch_array($_zapros);
-
+  $stmt = $dbh->prepare('SELECT * FROM info_users WHERE id=:id');
+  $stmt->execute(array($s_id));
+  $row = $stmt->fetch();
 
   if (isset($_POST['name'])) {
     $p_name = $_POST['name'];
@@ -29,7 +29,7 @@
 	} 
   } //заносим введенный пользователем пароль в переменную $p_surn, если он пустой, то уничтожаем переменную
 
-  if (isset($_POST['birth'])) {
+  if (isset($_POST['date'])) {
     $p_date=$_POST['date'];
 	if ($p_date =='') {
 	  unset($p_date);
@@ -48,39 +48,30 @@
   $p_surn = trim($p_surn);
   $p_date = trim($p_date);
 
-  if ( ($p_name !== $myrow['name']) and (isset($p_name)) )
+  if ( ($p_name !== $row['name']) and (isset($p_name)) )
   {
-      $result2 = mysql_query ("UPDATE info_users SET name='$p_name' where id='$s_id'");
-      if ($result2=='TRUE')
-      {
-          echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='localhost'>Главная страница</a>";
-      }
-      else {
-          echo "Ошибка! Вы не зарегистрированы.";
-      }
+    $stmt = $dbh->query('UPDATE info_users SET name=:name where id=:id');
+    $stmt->execute(array($p_name, $s_id));
   }
 
-if ( ($p_surn !== $myrow['surn']) and (isset($p_surn)) )
-{
-    $result2 = mysql_query ("UPDATE info_users SET surn='$p_surn' where id='$s_id'");
-    if ($result2=='TRUE')
-    {
-        echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='localhost'>Главная страница</a>";
-    }
-    else {
-        echo "Ошибка! Вы не зарегистрированы.";
-    }
-}
+  if ( ($p_surn !== $row['surn']) and (isset($p_surn)) )
+  {
+    $stmt = $dbh->query('UPDATE info_users SET surn=:surn where id=:id');
+    $stmt->execute(array($p_surn, $s_id));
+  }
 
-if ( ($p_date !== $myrow['birth']) and (isset($p_date)) )
-{
-    $result2 = mysql_query ("UPDATE info_users SET birth='$p_date' where id='$s_id'");
-    if ($result2=='TRUE')
-    {
-        echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='localhost'>Главная страница</a>";
-    }
-    else {
-        echo "Ошибка! Вы не зарегистрированы.";
-    }
-}
+  if ( ($p_date !== $row['birth']) and (isset($p_date)) )
+  {
+    $stmt = $dbh->query('UPDATE info_users SET birth=:birth where id=:id');
+    $stmt->execute(array($p_date, $s_id));
+  }
+
+  $stmt = $dbh->prepare('SELECT * FROM info_users WHERE id=:id');
+  $stmt->execute(array($s_id));
+  $row = $stmt->fetch();
+
+  $_SESSION['name']=$row['name'];
+  $_SESSION['surn']=$row['surn'];
+  $_SESSION['date']=$row['birth'];
+  echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='localhost'>Главная страница</a>";
 ?>

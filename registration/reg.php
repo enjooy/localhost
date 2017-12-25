@@ -60,13 +60,9 @@
 
  </main>
 
-<footer>
-     <p>
-        <small>
-          <time>2017-12-11</time> © <a>Bezvorotniy</a>
-       </small>
-    </p>
-</footer>
+<?php
+  include_once('../footer.php');
+?>
 
 </body>
 </html>

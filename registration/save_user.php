@@ -41,25 +41,27 @@
   $password = trim($password);
   $email = trim($email);
   // подключаемся к базе
-  include ("../db.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь
+  include ("../db_pdo.php");
+  // файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь
   // проверка на существование пользователя с таким же логином
-  $result = mysql_query("SELECT email FROM users WHERE login='$login'",$db);
-  $myrow = mysql_fetch_array($result);
-  if (!empty($myrow['email'])) {
-    exit ("Извините, введённый вами логин уже зарегистрирован. Введите другой логин.");
+  $stmt = $dbh->prepare('SELECT * FROM users WHERE login=:login');
+  $stmt->execute(array($login));
+  $row = $stmt->fetch();
+
+  if (!empty($row['email'])) {
+    echo "Такой уже есть!. <a href='localhost'>Главная страница</a>";
   }
-  // если такого нет, то сохраняем данные
-  $result2 = mysql_query ("INSERT INTO users (login,pass,email) VALUES('$login','$password','$email')");
-  // Проверяем, есть ли ошибки
-  if ($result2=='TRUE')
+  /*while ($row = $stmt->fetch())
   {
-    $result3 = mysql_query ("SELECT * FROM users WHERE login='$login'");
-    $myrow = mysql_fetch_array($result3);
-    $_id = $myrow['id'];
-    $result3 = mysql_query ("INSERT INTO info_users (id) VALUES('$_id')");
-    echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='localhost'>Главная страница</a>";
-  }
-  else {
-    echo "Ошибка! Вы не зарегистрированы.";
-  }
+    echo $row['email'] . "\n";
+  }*/
+
+  // Сохраняем данные
+  $stmt = $dbh->prepare('INSERT INTO users (login,pass,email) VALUES(:login, :pass, :email)');
+  $stmt->execute(array($login, $password, $email));
+  $_id = $dbh->lastInsertId();
+
+  // Пустое поле для доп. информации
+  $stmt = $dbh->prepare('INSERT INTO info_users (id) VALUES(:id)');
+  $stmt->execute(array($_id));
 ?>

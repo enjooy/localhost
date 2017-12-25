@@ -11,18 +11,6 @@ body {
     margin:0;
 }
 
-nav {
-    background-color: #eee;
-    border: 1px solid #ddd;
-	margin: 50px 0px 20px 0px;
-    height: 56px;
-}
-
-nav ul li {
-    float:left;
-    margin-right:22px
-}
-
 main {
     margin: 0 auto;
     width: 1170px;

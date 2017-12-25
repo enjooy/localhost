@@ -26,22 +26,33 @@
   //удаляем лишние пробелы
   $email = trim($email);
   $pass = trim($pass);
-    // подключаемся к базе
-  include ("../db.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь
 
-  $result = mysql_query("SELECT * FROM users WHERE email='$email'",$db); //извлекаем из базы все данные о пользователе с введенным логином
-  $myrow = mysql_fetch_array($result);
-  if (empty($myrow['pass']))
+  // подключаемся к базе
+  include ("../db_pdo.php");
+  $stmt = $dbh->prepare('SELECT * FROM users WHERE email=:email');
+  $stmt->execute(array($email));
+  $row = $stmt->fetch();
+
+  if (empty($row['pass']))
   {
     //если пользователя с введенным логином не существует
     exit ("Извините, введённый вами login или пароль неверный.");
   }
   else {
     //если существует, то сверяем пароли
-    if ($myrow['pass']==$pass) {
+    if ($row['pass']==$pass) {
         //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
-        $_SESSION['login']=$myrow['login'];
-        $_SESSION['id']=$myrow['id'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
+        $_SESSION['login']=$row['login'];
+        $_SESSION['id']=$row['id'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
+        $_id = $row['id'];
+
+        $stmt = $dbh->prepare('SELECT * FROM info_users WHERE id=:id');
+        $stmt->execute(array($_id));
+        $row = $stmt->fetch();
+
+        $_SESSION['name']=$row['name'];
+        $_SESSION['surn']=$row['surn'];
+        $_SESSION['date']=$row['birth'];
         echo "Вы успешно вошли на сайт! <a href='localhost'>Главная страница</a>";
     }
     else {

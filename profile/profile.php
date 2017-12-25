@@ -26,6 +26,11 @@
                 echo $_SESSION['login'];
               ?>
           </a>
+          <a>
+            <?php
+              echo $_SESSION['name']." ".$_SESSION['surn'];
+            ?>
+          </a>
       </div>
     </section>
   </article>
@@ -54,13 +59,9 @@ else
 }
 ?>
 
-<footer>
-     <p>
-        <small>
-          <time>2017-12-11</time> © <a>Bezvorotniy</a>
-       </small>
-    </p>
-</footer>
+<?php
+  include_once('../footer.php');
+?>
 
 </body>
 </html>
