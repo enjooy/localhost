@@ -50,20 +50,23 @@
 
   if ( ($p_name !== $row['name']) and (isset($p_name)) )
   {
-    $stmt = $dbh->query('UPDATE info_users SET name=:name where id=:id');
+    $stmt = $dbh->prepare('UPDATE info_users SET name=:name where id=:id');
     $stmt->execute(array($p_name, $s_id));
+    $row = $stmt->fetch();
   }
 
   if ( ($p_surn !== $row['surn']) and (isset($p_surn)) )
   {
-    $stmt = $dbh->query('UPDATE info_users SET surn=:surn where id=:id');
+    $stmt = $dbh->prepare('UPDATE info_users SET surn=:surn where id=:id');
     $stmt->execute(array($p_surn, $s_id));
+    $row = $stmt->fetch();
   }
 
   if ( ($p_date !== $row['birth']) and (isset($p_date)) )
   {
-    $stmt = $dbh->query('UPDATE info_users SET birth=:birth where id=:id');
+    $stmt = $dbh->prepare('UPDATE info_users SET birth=:birth where id=:id');
     $stmt->execute(array($p_date, $s_id));
+    $row = $stmt->fetch();
   }
 
   $stmt = $dbh->prepare('SELECT * FROM info_users WHERE id=:id');

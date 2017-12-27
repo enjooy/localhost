@@ -58,7 +58,7 @@
 
   // Сохраняем данные
   $stmt = $dbh->prepare('INSERT INTO users (login,pass,email) VALUES(:login, :pass, :email)');
-  $stmt->execute(array($login, $password, $email));
+  $stmt->execute(array($login, sha1($password), $email));
   $_id = $dbh->lastInsertId();
 
   // Пустое поле для доп. информации

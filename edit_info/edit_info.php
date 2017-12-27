@@ -19,17 +19,50 @@
     <section>
       <h3>Редактирование дополнительной информации</h3>
       <form action="edit_user.php" method='post' class='edit-form'>
-		  <div class='form-row'>
-              <label for='form_login'>Имя: </label>
-              <input type='text' id='form_name' name='name'>
+          <div class='form-row'>
+              <label>Email: </label>
+              <?php include_once('../db_pdo.php');
+                getAllData();
+                echo "<input type='email' id='form_email' name='email' value='".$data_row['email']."'>";
+              ?>
           </div>
           <div class='form-row'>
-              <label for='form_login'>Фамилия: </label>
-              <input type='text' id='form_surn' name='surn'>
+              <label>Никнейм: </label>
+              <?php include_once('../db_pdo.php');
+                getAllData();
+                echo "<input type='text' id='form_nick' name='nick' value='".$data_row['nick']."'>";
+              ?>
           </div>
           <div class='form-row'>
-              <label for='form_login'>Дата рождения:</label>
-              <input type='date' id='form_date' name='date'>
+              <label>Пароль: </label>
+          </div>
+          <div class='form-row'>
+              <label>Меня зовут: </label>
+              <?php include_once('../db_pdo.php');
+                getAllData();
+                echo "<input type='text' id='form_name' name='name' value='".$data_row['name']."'>";
+              ?>
+          </div>
+          <div class='form-row'>
+              <label>Моя фамилия: </label>
+              <?php include_once('../db_pdo.php');
+                getAllData();
+                echo "<input type='text' id='form_surn' name='surn' value='".$data_row['surn']."'>";
+              ?>
+          </div>
+          <div class='form-row'>
+              <label>В детстве я: </label>
+              <p>
+                <input type='radio' name='check1' value="m">
+                <input type='radio' name='check1' value="j">
+              </p>
+          </div>
+          <div class='form-row'>
+              <label>Дата рождения:</label>
+              <?php include_once('../db_pdo.php');
+                getAllData();
+                echo "<input type='date' id='form_date' name='date' value='".$data_row['date']."'>";
+              ?>
           </div>
 
         <div class="form-row">

@@ -45,18 +45,6 @@ menu {
     padding: 0;
 }
 
-footer {
-    background-color: #373737;
-    clear: both;
-    color: #fff;
-	position: relative;
-	height: 30px;
-}
-
-footer small a {
-    color: #eff;
-}
-
 .form-row {
 	margin-bottom: 8px;
 	overflow: hidden;
@@ -71,18 +59,23 @@ footer small a {
 	border: 1px solid #ABADB3;
 }
 
+.form-row p {
+    float: right;
+    height: 39px;
+    line-height: 19px;
+    margin: 0px;
+    padding: 0px 5px;
+    width: 287px;
+    border: 1px solid #ABADB3;
+}
+
+.form-row p input {
+    height: 19px;
+}
+
 .edit-form {
 	width: 416px;
 	margin: 0 auto;
-}
-
-.form-row textarea {
-	height: 90px;
-    line-height: 16px;
-    font-size: 12px;
-    padding: 0px 5px;
-    width: 404px;
-    border: 1px solid #ABADB3;
 }
 
 .form-row input[type=submit] {

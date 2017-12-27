@@ -7,7 +7,7 @@
 }
 
 body { 
-    background-color: rgba(255,255,255);
+    background-color: white;
     margin:0;
 }
 
@@ -23,9 +23,8 @@ body {
     margin: 10px;
 }
 
-.form-profile a {
-    float: left;
-    font: 36pt sans-serif;
+.form-profile p {
+    font: 18pt sans-serif;
     color: white;
 }
 
@@ -61,18 +60,6 @@ aside {
 
 menu {
     padding: 0;
-}
-
-footer {
-    background-color: #373737;
-    clear: both;
-    color: #fff;
-	position: relative;
-	height: 30px;
-}
-
-footer small a {
-    color: #eff;
 }
 
 .form-row {

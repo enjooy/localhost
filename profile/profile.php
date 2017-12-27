@@ -21,16 +21,16 @@
       <a href="../edit_info/edit_info.php"><h4>Редактировать профиль</h4></a>
       <div class="form-profile">
           <img src="../img/profile.png" height="180" width="180">
-          <a>
+          <p>
               <?php
                 echo $_SESSION['login'];
               ?>
-          </a>
-          <a>
+          </p>
+          <p>
             <?php
               echo $_SESSION['name']." ".$_SESSION['surn'];
             ?>
-          </a>
+          </p>
       </div>
     </section>
   </article>
